@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project uses Ruby on Rails, with the following dependencies / gems:
+- Ruby (3.2.1)
+- Rails (7.1.3.2)
+- Postgres
+- Tailwind + Foreman
 
-Things you may want to cover:
+For postgres, set the username and password in `config/database.yml` accordingly.
 
-* Ruby version
+After installing the dependencies, execute the following commands to run the project:
+```
+rails db:create
+rails db:migrate
+./bin/dev
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
