@@ -10,12 +10,10 @@ class TasksController < ApplicationController
     end
     def create
         @task = Task.new(task_params)
-        # Mark task as not done by default
-        @task.is_done = false
         if @task.save
             redirect_to @task
         else
-            render :show, status: :unprocessable_entity
+            render :new, status: :unprocessable_entity
         end
     end
     def edit
@@ -26,7 +24,7 @@ class TasksController < ApplicationController
         if @task.update(task_params)
             redirect_to @task
         else 
-            render :show, status: :unprocessable_entity
+            render :edit, status: :unprocessable_entity
         end
     end
     def destroy

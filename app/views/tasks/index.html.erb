@@ -1,11 +1,11 @@
-<h1> Tasks </h1> 
+<h1 class="text-3xl font-bold"> Tasks </h1> 
 
-<div style="margin-bottom: 1em">
+<div class="mb-1">
     <% unless @tasks.empty? %>
         <% @tasks.each do |task| %>
-            <div style="padding: 0.5em; border: 1px solid black; margin-bottom: 0.5em;">
-                <%= link_to task.title, task_path(task.id) %>
-                <div style="font-size: 0.85em; font-style: italic;">
+            <div class="p-2 mb-1 border-solid border-2 rounded-md">
+                <%= link_to task.title, task_path(task.id), class: "link text-lg" %>
+                <div class="text-sm italic">
                 <% if task.done? %>
                     <span> Done </span>
                 <% else %>
@@ -19,4 +19,4 @@
     <% end %>
 </div>
 
-<%= button_to "Add a task", new_task_path, method: "get" %>
+<%= button_to "Add a task", new_task_path, method: "get", class: "btn-primary w-full"%>

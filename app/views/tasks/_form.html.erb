@@ -2,23 +2,24 @@
     <div>
         <%= form.label :title %>
         <div>
-            <%= form.text_field :title %>
+            <%= form.text_field :title, class: "w-full" %>
         </div>
         <% task.errors.full_messages_for(:title).each do |message| %>
-            <div> <%= message %> </div> 
+            <div class="field-error"> <%= message %> </div> 
         <% end %>
     </div>
+    <br>
     <div>
         <%= form.label :desc, "Description" %> 
         <div>
-            <%= form.text_area :desc %>
+            <%= form.text_area :desc, class: "w-full" %>
         </div>
         <% task.errors.full_messages_for(:desc).each do |message| %>
-            <div> <%= message %> </div> 
+            <div class="field-error"> <%= message %> </div> 
         <% end %>
         
         <% task.errors.full_messages_for(:is_done).each do |message| %>
-            <div> <%= message %> </div> 
+            <div class="field-error"> <%= message %> </div> 
         <% end %>
     </div>
     <% if is_edit %>
@@ -28,5 +29,5 @@
     </div>
     <% end %>
     <br>
-    <%= form.submit %>
+    <%= form.submit class: "btn-primary"%>
 <% end %>

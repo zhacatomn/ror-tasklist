@@ -1,4 +1,4 @@
-<%= link_to "Back", task_path(@task.id) %>
-<h1> Edit Task "<%= @task.title %>" </h1>
+<%= link_to "Back", task_path(@task.id), class: "link" %>
+<h1 class="title"> Edit Task "<%= @task.title %>" </h1>
 
 <%= render "form", task: @task, is_edit: true %>

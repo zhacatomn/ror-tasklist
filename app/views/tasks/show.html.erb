@@ -1,11 +1,13 @@
-<%= link_to "Back", root_path %>
-<h1 style="margin-bottom: 0em"> <%= @task.title %> </h1>
-<div style="font-style: italic; font-size: 0.85em"> 
+<%= link_to "Back", root_path, class: "link" %>
+<h1 class="title"> <%= @task.title %> </h1>
+<div class="italic text-sm mb-5"> 
     <% if @task.done? %> Done <% else %> Not done <% end %>
 </div>
 <p> <%= @task.desc %> </p>
 
-<%= button_to "Edit task", edit_task_path(@task.id), method: "get" %>
-<%= button_to "Delete task", task_path(@task.id), method: "delete", data: {
-    turbo_confirm: "Are you sure?"
-} %>
+<div class="flex gap-x-1 mt-5"> 
+    <%= button_to "Edit task", edit_task_path(@task.id), method: "get", class: "btn-primary" %>
+    <%= button_to "Delete task", task_path(@task.id), method: "delete", class: "btn-primary", data: {
+        turbo_confirm: "Are you sure?"
+    } %>
+</div>
