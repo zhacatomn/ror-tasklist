@@ -1,0 +1,22 @@
+<h1> Tasks </h1> 
+
+<div style="margin-bottom: 1em">
+    <% unless @tasks.empty? %>
+        <% @tasks.each do |task| %>
+            <div style="padding: 0.5em; border: 1px solid black; margin-bottom: 0.5em;">
+                <%= link_to task.title, task_path(task.id) %>
+                <div style="font-size: 0.85em; font-style: italic;">
+                <% if task.done? %>
+                    <span> Done </span>
+                <% else %>
+                    <span> Not done </span>
+                <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <h2> No tasks yet. </h2>
+    <% end %>
+</div>
+
+<%= button_to "Add a task", new_task_path, method: "get" %>

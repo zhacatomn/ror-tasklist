@@ -1,0 +1,32 @@
+<%= form_with model: task do |form| %>
+    <div>
+        <%= form.label :title %>
+        <div>
+            <%= form.text_field :title %>
+        </div>
+        <% task.errors.full_messages_for(:title).each do |message| %>
+            <div> <%= message %> </div> 
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :desc, "Description" %> 
+        <div>
+            <%= form.text_area :desc %>
+        </div>
+        <% task.errors.full_messages_for(:desc).each do |message| %>
+            <div> <%= message %> </div> 
+        <% end %>
+        
+        <% task.errors.full_messages_for(:is_done).each do |message| %>
+            <div> <%= message %> </div> 
+        <% end %>
+    </div>
+    <% if is_edit %>
+    <div>
+        <%= form.check_box :is_done %>
+        <%= form.label :is_done, "Completed?" %>
+    </div>
+    <% end %>
+    <br>
+    <%= form.submit %>
+<% end %>
